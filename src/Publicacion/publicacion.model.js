@@ -22,4 +22,4 @@ const publicacionSchema = new Schema(
     } 
 )
 
-export default model("Post", publicacionSchema)
+export default model("Publicacion", publicacionSchema)

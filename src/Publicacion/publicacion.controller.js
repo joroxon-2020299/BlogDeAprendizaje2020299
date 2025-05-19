@@ -1,4 +1,4 @@
-import Post from './publicacion.model.js'
+import Publicacion from './publicacion.model.js'
 
 // Crear una nueva publicación
 export const createPost = async (req, res) => {
@@ -6,7 +6,7 @@ export const createPost = async (req, res) => {
         const { title, content, course } = req.body
 
         // Crear la nueva publicación
-        const newPost = new Post(
+        const newPost = new Publicacion(
             { 
                 title, 
                 content, 
@@ -30,7 +30,7 @@ export const createPost = async (req, res) => {
 // Obtener todas las publicaciones
 export const getPosts = async (req, res) => {
     try {
-        const posts = await Post.find().sort({ createdAt: -1 }) // Ordenamos por fecha de creación
+        const posts = await Publicacion.find().sort({ createdAt: -1 }) // Ordenamos por fecha de creación
         return res.status(200).json(posts)
     } catch (error) {
         return res.status(500).json(
@@ -42,7 +42,7 @@ export const getPosts = async (req, res) => {
 // Obtener una publicación por su ID
 export const getPostById = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id)
+        const post = await Publicacion.findById(req.params.id)
 
         if (!post) {
         return res.status(404).json({ message: "Publicación no encontrada" })
@@ -61,7 +61,7 @@ export const updatePost = async (req, res) => {
     try {
         const { title, content, course } = req.body
 
-        const updatedPost = await Post.findByIdAndUpdate(
+        const updatedPost = await Publicacion.findByIdAndUpdate(
             req.params.id,
             { title, content, course },
             { new: true } // Devuelve la publicación actualizada
@@ -82,7 +82,7 @@ export const updatePost = async (req, res) => {
 // Eliminar una publicación
 export const deletePost = async (req, res) => {
     try {
-        const deletedPost = await Post.findByIdAndDelete(req.params.id)
+        const deletedPost = await Publicacion.findByIdAndDelete(req.params.id)
 
         if (!deletedPost) {
         return res.status(404).json({ message: "Publicación no encontrada" })
