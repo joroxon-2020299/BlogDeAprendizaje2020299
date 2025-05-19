@@ -5,7 +5,7 @@ import morgan from 'morgan' //Logs
 import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
 
-import postsRoutes from '../src/Comentario/comentario.routes.js'
+import postsRoutes from '../src/Publicacion/publicacion.routes.js'
 import commentsRoutes from '../src/Comentario/comentario.routes.js'
 
 const configs = (app)=>{
