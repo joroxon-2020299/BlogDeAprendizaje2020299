@@ -9,14 +9,14 @@ import {
 
 const api = Router()
 
-api.post('/posts', createPost) // Crear publicación
+api.post('/create', createPost) // Crear publicación
 
-api.get('/posts', getPosts) // Obtener todas las publicaciones
+api.get('/', getPosts) // Obtener todas las publicaciones
 
-api.get('/posts/:id', getPostById) // Obtener publicación por ID
+api.get('/:id', getPostById) // Obtener publicación por ID
 
-api.put('/posts/:id', updatePost) // Actualizar publicación
+api.put('/update/:id', updatePost) // Actualizar publicación
 
-api.delete('/posts/:id', deletePost) // Eliminar publicación
+api.delete('/delete/:id', deletePost) // Eliminar publicación
 
 export default api

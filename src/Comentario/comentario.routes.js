@@ -8,12 +8,12 @@ import {
 const api = Router()
 
 // Crear un comentario
-api.post('/comments', createComment) 
+api.post('/create', createComment) 
 
 // Obtener comentarios de una publicación
-api.get('/comments/:id', getCommentByPost)
+api.get('/:id', getCommentByPost)
 
 // Eliminar un comentario
-api.delete('/comments/delete/:id', deleteComment)
+api.delete('/delete/:id', deleteComment)
 
 export default api
